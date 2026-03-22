@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<h1>📊 Performance Dashboard</h1>
+
+<div class="grid">
+
+    <!-- Input Card -->
+    <div class="card">
+        <h3>Add Performance</h3>
+        <input type="number" id="distance" placeholder="Distance (m)">
+        <input type="number" id="time" placeholder="Time (sec)">
+        <button onclick="saveData()">Save</button>
+    </div>
+
+    <!-- Stats Card -->
+    <div class="card">
+        <h3>Stats</h3>
+        <p>Average Speed: <span id="avg">0</span></p>
+        <p>Best Speed: <span id="best">0</span></p>
+        <button onclick="resetData()">Reset</button>
+    </div>
+
+</div>
+
+<!-- Table -->
+<div class="card">
+    <h3>Records</h3>
+    <table id="table">
+        <tr>
+            <th>#</th>
+            <th>Distance</th>
+            <th>Time</th>
+            <th>Speed</th>
+            <th>Action</th>
+        </tr>
+    </table>
+</div>
+
+<!-- Chart -->
+<div class="card">
+    <h3>Performance Chart</h3>
+    <canvas id="chart"></canvas>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
