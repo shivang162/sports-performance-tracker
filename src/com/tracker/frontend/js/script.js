@@ -1,7 +1,22 @@
 let chart;
 
 function login() {
-    window.location.href = "dashboard.html";
+
+    fetch("http://localhost:8080/login", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+    .then(res => res.text())
+    .then(data => {
+        alert(data);
+        window.location.href = "dashboard.html";
+    })
+    .catch(err => {
+        console.error(err);
+        alert("Server not running or login failed");
+    });
 }
 
 function getData() {
@@ -9,40 +24,67 @@ function getData() {
 }
 
 function saveData() {
-    let d = parseFloat(distance.value);
-    let t = parseFloat(time.value);
 
-    if (!d || !t) return alert("Enter valid values");
+    let d = parseFloat(document.getElementById("distance").value);
+    let t = parseFloat(document.getElementById("time").value);
+
+    if (!d || !t) {
+        alert("Enter valid values");
+        return;
+    }
 
     let speed = d / t;
 
+    // ✅ Local storage (UI)
     let data = getData();
     data.push({ d, t, speed });
-
     localStorage.setItem("records", JSON.stringify(data));
 
     updateUI();
+
+    // ✅ Backend API call
+    fetch("http://localhost:8080/save", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            distance: d,
+            time: t,
+            speed: speed
+        })
+    })
+    .then(res => res.text())
+    .then(data => console.log("Backend:", data))
+    .catch(err => console.error("Error:", err));
 }
 
 function updateUI() {
+
     let data = getData();
     let table = document.getElementById("table");
 
     table.innerHTML = `
         <tr>
-            <th>#</th><th>Distance</th><th>Time</th><th>Speed</th><th>Action</th>
+            <th>#</th>
+            <th>Distance</th>
+            <th>Time</th>
+            <th>Speed</th>
+            <th>Action</th>
         </tr>
     `;
 
-    let total = 0, best = 0;
+    let total = 0;
+    let best = 0;
 
     data.forEach((r, i) => {
+
         total += r.speed;
         if (r.speed > best) best = r.speed;
 
         table.innerHTML += `
             <tr>
-                <td>${i+1}</td>
+                <td>${i + 1}</td>
                 <td>${r.d}</td>
                 <td>${r.t}</td>
                 <td>${r.speed.toFixed(2)}</td>
@@ -51,8 +93,11 @@ function updateUI() {
         `;
     });
 
-    document.getElementById("avg").innerText = data.length ? (total/data.length).toFixed(2) : 0;
-    document.getElementById("best").innerText = best.toFixed(2);
+    document.getElementById("avg").innerText =
+        data.length ? (total / data.length).toFixed(2) : 0;
+
+    document.getElementById("best").innerText =
+        data.length ? best.toFixed(2) : 0;
 
     drawChart(data);
 }
@@ -70,6 +115,7 @@ function resetData() {
 }
 
 function drawChart(data) {
+
     let labels = data.map((_, i) => i + 1);
     let speeds = data.map(r => r.speed);
 
@@ -81,7 +127,8 @@ function drawChart(data) {
             labels: labels,
             datasets: [{
                 label: "Speed",
-                data: speeds
+                data: speeds,
+                fill: false
             }]
         }
     });
