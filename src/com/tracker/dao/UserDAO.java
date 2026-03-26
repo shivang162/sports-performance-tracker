@@ -11,4 +11,3 @@ public class UserDAO {
         return email.equals("coach@example.com") && password.equals("safePassword123");
     }
 }
-
