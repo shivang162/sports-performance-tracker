@@ -4,7 +4,7 @@ import com.tracker.dao.UserDAO;
 
 public class AuthService {
 
-    private UserDAO userDAO = new UserDAO();
+    private final UserDAO userDAO = new UserDAO();
 
     public boolean login(String email, String password) {
 
