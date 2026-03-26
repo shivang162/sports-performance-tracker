@@ -3,7 +3,6 @@ package com.tracker;
 import com.sun.net.httpserver.HttpServer;
 import com.tracker.controller.AuthController;
 import com.tracker.controller.PerformanceController;
-
 import java.net.InetSocketAddress;
 
 public class Main {
