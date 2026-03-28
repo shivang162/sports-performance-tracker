@@ -50,8 +50,7 @@
         body::after {
             content: '';
             position: fixed;
-            width: 600px;
-            height: 600px;
+            width: 600px; height: 600px;
             background: radial-gradient(circle, rgba(232,58,47,0.12) 0%, transparent 70%);
             top: 50%; left: 50%;
             transform: translate(-50%, -50%);
@@ -79,7 +78,6 @@
             to   { opacity: 1; transform: translateY(0); }
         }
 
-        /* ── Brand panel ── */
         .brand {
             padding: 60px 50px 60px 0;
             display: flex;
@@ -87,12 +85,7 @@
             justify-content: space-between;
         }
 
-        .logo-row {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 40px;
-        }
+        .logo-row { display: flex; align-items: center; gap: 12px; margin-bottom: 40px; }
 
         .logo-icon {
             width: 40px; height: 40px;
@@ -103,11 +96,7 @@
             font-size: 20px;
         }
 
-        .logo-text {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 22px;
-            letter-spacing: 2px;
-        }
+        .logo-text { font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 2px; }
 
         .brand-headline {
             font-family: 'Bebas Neue', sans-serif;
@@ -128,36 +117,15 @@
         }
 
         .stats-row { display: flex; gap: 32px; }
-
         .stat { display: flex; flex-direction: column; gap: 4px; }
+        .stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 28px; color: var(--accent); letter-spacing: 1px; }
+        .stat-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
 
-        .stat-num {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 28px;
-            color: var(--accent);
-            letter-spacing: 1px;
-        }
-
-        .stat-label {
-            font-size: 11px;
-            color: var(--muted);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* ── Divider ── */
         .vdivider { background: var(--border); width: 1px; }
 
-        /* ── Form panel ── */
         .form-panel { padding: 60px 0 60px 50px; }
 
-        .form-title {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 32px;
-            letter-spacing: 2px;
-            margin-bottom: 6px;
-        }
-
+        .form-title { font-family: 'Bebas Neue', sans-serif; font-size: 32px; letter-spacing: 2px; margin-bottom: 6px; }
         .form-sub { font-size: 13px; color: var(--muted); margin-bottom: 40px; }
 
         .field { margin-bottom: 20px; position: relative; }
@@ -188,11 +156,7 @@
         }
 
         .field input::placeholder { color: #3a3a3a; }
-
-        .field input:focus {
-            border-color: var(--red);
-            box-shadow: 0 0 0 3px rgba(232,58,47,0.12);
-        }
+        .field input:focus { border-color: var(--red); box-shadow: 0 0 0 3px rgba(232,58,47,0.12); }
 
         .field-icon {
             position: absolute;
@@ -202,21 +166,9 @@
             opacity: 0.3;
         }
 
-        .row {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin: -6px 0 28px;
-        }
+        .row { display: flex; align-items: center; justify-content: space-between; margin: -6px 0 28px; }
 
-        .remember {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 13px;
-            color: var(--muted);
-            cursor: pointer;
-        }
+        .remember { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--muted); cursor: pointer; }
 
         .remember input[type="checkbox"] {
             appearance: none;
@@ -230,10 +182,7 @@
             transition: background 0.2s, border-color 0.2s;
         }
 
-        .remember input[type="checkbox"]:checked {
-            background: var(--red);
-            border-color: var(--red);
-        }
+        .remember input[type="checkbox"]:checked { background: var(--red); border-color: var(--red); }
 
         .remember input[type="checkbox"]:checked::after {
             content: '✓';
@@ -246,13 +195,7 @@
             font-weight: bold;
         }
 
-        .forgot {
-            font-size: 13px;
-            color: var(--muted);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
+        .forgot { font-size: 13px; color: var(--muted); text-decoration: none; transition: color 0.2s; }
         .forgot:hover { color: var(--red); }
 
         .btn-login {
@@ -295,12 +238,7 @@
         }
 
         .divider-text::before,
-        .divider-text::after {
-            content: '';
-            flex: 1;
-            height: 1px;
-            background: var(--border);
-        }
+        .divider-text::after { content: ''; flex: 1; height: 1px; background: var(--border); }
 
         .btn-guest {
             width: 100%;
@@ -360,7 +298,6 @@
 
 <div class="wrapper">
 
-    <!-- Left branding panel -->
     <div class="brand">
         <div>
             <div class="logo-row">
@@ -376,27 +313,15 @@
             </p>
         </div>
         <div class="stats-row">
-            <div class="stat">
-                <span class="stat-num">12K+</span>
-                <span class="stat-label">Athletes</span>
-            </div>
-            <div class="stat">
-                <span class="stat-num">98M</span>
-                <span class="stat-label">Sessions</span>
-            </div>
-            <div class="stat">
-                <span class="stat-num">4.9★</span>
-                <span class="stat-label">Rating</span>
-            </div>
+            <div class="stat"><span class="stat-num">12K+</span><span class="stat-label">Athletes</span></div>
+            <div class="stat"><span class="stat-num">98M</span><span class="stat-label">Sessions</span></div>
+            <div class="stat"><span class="stat-num">4.9★</span><span class="stat-label">Rating</span></div>
         </div>
     </div>
 
-    <!-- Vertical divider -->
     <div class="vdivider"></div>
 
-    <!-- Right form panel -->
     <div class="form-panel">
-
         <div class="form-title">WELCOME BACK</div>
         <p class="form-sub">Sign in to continue your journey</p>
 
@@ -427,77 +352,11 @@
         <div class="divider-text">or</div>
 
         <button class="btn-guest" onclick="guestLogin()">Continue as Guest</button>
-
     </div>
 </div>
 
-<script>
-    const BASE_URL = "http://localhost:8080";
-
-    function showError(msg) {
-        const el = document.getElementById("errorMsg");
-        el.textContent = msg;
-        el.classList.add("show");
-        document.getElementById("successMsg").classList.remove("show");
-    }
-
-    function showSuccess(msg) {
-        const el = document.getElementById("successMsg");
-        el.textContent = msg;
-        el.classList.add("show");
-        document.getElementById("errorMsg").classList.remove("show");
-    }
-
-    function login() {
-        const email    = document.getElementById("username").value.trim();
-        const password = document.getElementById("password").value;
-        const btn      = document.getElementById("loginBtn");
-
-        document.getElementById("errorMsg").classList.remove("show");
-        document.getElementById("successMsg").classList.remove("show");
-
-        if (!email || !password) {
-            showError("Please fill in both fields.");
-            return;
-        }
-
-        btn.textContent = "AUTHENTICATING...";
-        btn.disabled = true;
-
-        // POST to Java AuthController → http://localhost:8080/login
-        fetch(`${BASE_URL}/login`, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ email, password })
-        })
-        .then(res => {
-            if (!res.ok) throw new Error("Invalid credentials");
-            return res.text();
-        })
-        .then(data => {
-            showSuccess(data); // "Login Successful" from AuthController
-            setTimeout(() => {
-                window.location.href = "dashboard.html";
-            }, 800);
-        })
-        .catch(err => {
-            showError(err.message || "Server not reachable. Is the Java server running?");
-            btn.textContent = "LOGIN";
-            btn.disabled = false;
-        });
-    }
-
-    function guestLogin() {
-        // Skip auth and go straight to dashboard as guest
-        sessionStorage.setItem("guest", "true");
-        window.location.href = "dashboard.html";
-    }
-
-    // Enter key support
-    document.addEventListener("keydown", e => {
-        if (e.key === "Enter") login();
-    });
-</script>
+<!-- Shared script — handles login(), guestLogin(), Enter key -->
+<script src="js/script.js"></script>
 
 </body>
 </html>
