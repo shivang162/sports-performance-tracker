@@ -20,7 +20,7 @@ public class DBConnection {
     // ── Database config — change these to match your MySQL setup ──────────
     private static final String DB_URL  = "jdbc:mysql://localhost:3306/sports_tracker";
     private static final String DB_USER = "root";
-   private static final String DB_PASS = "SHIVANG123@k";;         // change if needed
+   private static final String DB_PASS = "SHIVANG123@k";         // change if needed
 
     // Singleton connection instance
     private static Connection connection = null;
