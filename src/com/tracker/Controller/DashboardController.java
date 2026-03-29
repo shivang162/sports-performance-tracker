@@ -1,4 +1,4 @@
-package com.tracker.controller;
+package com.tracker.Controller;
 
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
