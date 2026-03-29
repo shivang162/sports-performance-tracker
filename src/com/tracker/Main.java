@@ -1,9 +1,9 @@
 package com.tracker;
 
 import com.sun.net.httpserver.HttpServer;
-import com.tracker.controller.AuthController;
-import com.tracker.controller.DashboardController;
-import com.tracker.controller.PerformanceController;
+import com.tracker.Controller.AuthController;
+import com.tracker.Controller.DashboardController;
+import com.tracker.Controller.PerformanceController;
 import com.tracker.dao.DBConnection;
 
 import java.net.InetSocketAddress;
